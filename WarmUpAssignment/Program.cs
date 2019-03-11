@@ -9,7 +9,7 @@ namespace Assignment1_S19
         public static void Main()
         {
             // Prime Numbers 
-            int a = 5, b = 35;
+            int a = 5, b = 15;
             PrintPrimeNumbers(a, b);
             Console.WriteLine("\n");
 
@@ -34,7 +34,7 @@ namespace Assignment1_S19
         }
 
         /*********************************************************************/
-        // printPrimeNumbers(int x , int y)
+        // PrintPrimeNumbers(int x , int y)
         /**********************************************************************
             x – starting range, integer (int)
             y – ending range, integer (int)
@@ -56,14 +56,14 @@ namespace Assignment1_S19
                 {
                     string message = "Only positive integers greater than 1 are allowed.";
                     Console.WriteLine(message);
-                    return;
+                    
                 }
                 // Starting value must be less than the ending value
                 else if (x > y)
                 {
                     string message = "Starting value must be less than the ending value.";
                     Console.WriteLine(message);
-                    return;
+                    
                 }
 
                 bool[] primes = new bool[y+1];
@@ -123,8 +123,8 @@ namespace Assignment1_S19
         /**********************************************************************
             parameter:  n – number of terms of the series, integer (int)
         -----------------------------------------------------------------------
-            summary:    This method computes the series 1/2 – 2!/3 + 3!/4 – 4!/5 --- n     
-                        * where ! means factorial, i.e., 4! = 4*3*2*1 = 24. Round off the results to 
+            summary:    This method computes the series 1/2 – 2!/3 + 3!/4 – 4!/5 --- n = 5    
+                        where ! means factorial, i.e., 4! = 4*3*2*1 = 24. Round off the results to 
                         three decimal places. 
                         Hint: Odd terms are all positive whereas even terms are all negative.
                         Tip: Write a method to compute factorial of n, call it whenever required.
@@ -135,8 +135,18 @@ namespace Assignment1_S19
         {
             try
             {
-
-                return RecurSum(n);
+                // We want to make sure that n is a positive value greater than or equal to 2
+                if (n < 2)
+                {
+                    string message = "Only n values greater than or equal to 2 is allowed.";
+                    Console.WriteLine(message);
+                    
+                }
+                else
+                {
+                    return RecurSum(n);
+                }
+                
 
                 // Compute series
                 double RecurSum (int a)
@@ -203,6 +213,8 @@ namespace Assignment1_S19
         {
             try
             {
+
+                
                 int j = 0;
                 // create the tree
                 for (int i = 1; i <= n; i++)
